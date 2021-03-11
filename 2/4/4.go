@@ -39,8 +39,11 @@ func add(head *ListNode, x int) *ListNode {
 	for head.Next != nil && head.Next.Val < x {
 		head = head.Next
 	}
+	//保存下一个元素
 	temp := head.Next
+	//插入节点连接下一个元素
 	node.Next = temp
+	//插入节点连接
 	head.Next = node
 
 	return dummy.Next
@@ -68,9 +71,13 @@ func reverse(head *ListNode) *ListNode {
 	}
 	var prev *ListNode
 	for head != nil {
+		//缓存下个元素
 		temp := head.Next
+		//断链并指向上一个元素
 		head.Next = prev
+		//保存当前元素
 		prev = head
+		//移到下个元素继续处理
 		head = temp
 	}
 	return prev
